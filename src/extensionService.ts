@@ -1,10 +1,8 @@
-"use strict";
-
 import * as vscode from 'vscode';
 import {IExtension, IExtensionVersion, listExtensions} from './galleryService';
 import {some} from 'lodash';
 import * as utils from './utils';
-import * as semver from 'semver'
+import * as semver from 'semver';
 import * as os from 'os';
 import * as path from 'path';
 
@@ -12,11 +10,15 @@ export default class ExtensionService {
     private extensionsPath: string = path.join(os.homedir(), '.vscode', 'extensions');
 
     listWantedExtensions(): Promise<string[]> {
-        return Promise.resolve(vscode.workspace.getConfiguration('extension-manager').get<string[]>('extensions') || []);
+        return Promise.resolve(
+            vscode.workspace.getConfiguration('vscode-extension-manager')
+                .get<string[]>('extensions') || []
+        );
     }
 
     listInstalledExtensions(): Promise<any[]> {
-        return Promise.resolve(vscode.extensions.all.filter(e => e.extensionPath.startsWith(os.homedir())) || []);
+        return Promise.resolve(
+            vscode.extensions.all.filter(e => e.extensionPath.startsWith(os.homedir())) || []);
     }
 
     listMissingExtensions(): Promise<string[]> {

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 rm -rf node_modules yarn-error.log npm-debug.log package-lock.json yarn.lock &&
 	yarn cache clean &&
 	yarn install &&

@@ -12,17 +12,17 @@ export interface IExtensionMetadata {
 }
 
 export interface IExtensionVersion {
-    version: string,
-    date: string,
-    downloadUri: string,
-    packageJsonUri: string
+    version: string;
+    date: string;
+    downloadUri: string;
+    packageJsonUri: string;
 }
 
 export interface IExtension {
-    name: string,
-    publisher: string,
-    versions: any[],
-    metadata: IExtensionMetadata
+    name: string;
+    publisher: string;
+    versions: any[];
+    metadata: IExtensionMetadata;
 }
 
 export function listExtensions(extensions?: string[]): Promise<IExtension[]> {

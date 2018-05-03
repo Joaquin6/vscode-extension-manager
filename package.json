@@ -17,12 +17,7 @@
   },
   "license": "MIT",
   "categories": [
-    "Linters",
-    "Themes",
-    "Debuggers",
-    "Formatters",
-    "Extension Packs",
-    "Other"
+    "Extension Packs"
   ],
   "main": "./out/src/extension",
   "icon": "images/logo.png",
@@ -55,8 +50,8 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-    "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+    "vscode:prepublish": "tsc -p ./",
+    "compile": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "node ./node_modules/vscode/bin/test"
   },
@@ -157,20 +152,23 @@
     "ziyasal.vscode-open-in-github"
   ],
   "devDependencies": {
+    "@types/node": "^10.0.3",
     "@types/rimraf": "^2.0.2",
-    "chai": "^3.5.0",
+    "@types/semver": "^5.5.0",
+    "@types/typescript": "^2.0.0",
+    "chai": "^4.1.2",
     "rimraf": "^2.6.2",
-    "sinon": "^1.17.4",
-    "typescript": "^1.8.5",
-    "vscode": "^0.11.0"
+    "sinon": "^5.0.3",
+    "typescript": "^2.8.3"
   },
   "dependencies": {
     "@types/http-proxy-agent": "^2.0.0",
-    "fs": "^0.0.2",
+    "fs": "^0.0.1-security",
     "http-proxy-agent": "^2.1.0",
     "https-proxy-agent": "^2.2.1",
     "lodash": "^4.17.10",
-    "markdown-it": "^8.1.0",
-    "semver": "^5.5.0"
+    "markdown-it": "^8.4.1",
+    "semver": "^5.5.0",
+    "vscode": "^1.1.17"
   }
 }

@@ -63,13 +63,14 @@ export function json(url: string, method?: string, data?: string, headers?): Pro
 }
 
 export function download(filepath: string, url: string) {
-    return request(url, undefined, undefined, undefined, 3).then(({req, res}) => new Promise<void>((resolve, reject) => {
-        const out = fs.createWriteStream(filepath);
+    return request(url, undefined, undefined, undefined, 3).then(({req, res}) =>
+        new Promise<void>((resolve, reject) => {
+            const out = fs.createWriteStream(filepath);
 
-        out.once('finish', () => resolve(undefined));
-        res.once('error', reject);
-        res.pipe(out);
-    }));
+            out.once('finish', () => resolve(undefined));
+            res.once('error', reject);
+            res.pipe(out);
+        }));
 }
 
 export function getProxyAgent(protocol: string) {
@@ -92,10 +93,18 @@ export function getProxyAgent(protocol: string) {
 
 function getProxyURI(protocol: string) {
     if (protocol === 'http:') {
-        return vscode.workspace.getConfiguration('http').get('proxy') || process.env.HTTP_PROXY || process.env.http_proxy || null;
+        return vscode.workspace.getConfiguration('http').get('proxy')
+            || process.env.HTTP_PROXY
+            || process.env.http_proxy
+            || null;
     }
     else if (protocol === 'https:') {
-        return process.env.HTTPS_PROXY || process.env.https_proxy || vscode.workspace.getConfiguration('http').get('proxy') || process.env.HTTP_PROXY || process.env.http_proxy || null;
+        return process.env.HTTPS_PROXY
+            || process.env.https_proxy
+            || vscode.workspace.getConfiguration('http').get('proxy')
+            || process.env.HTTP_PROXY
+            || process.env.http_proxy
+            || null;
     }
     return null
 }
@@ -103,7 +112,8 @@ function getProxyURI(protocol: string) {
 export function writeMetadata(extension: IExtension, version: any, packageJson: any, packageJsonPath: string) {
     packageJson = Object.assign({__metadata: extension.metadata}, packageJson)
     return new Promise((resolve, reject) => {
-        fs.writeFile(packageJsonPath, JSON.stringify(packageJson), err => err ? reject(err) : resolve());
+        fs.writeFile(packageJsonPath, JSON.stringify(packageJson), err =>
+            err ? reject(err) : resolve());
     });
 }
 
