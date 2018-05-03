@@ -7,5 +7,6 @@ test/**
 src/**
 **/*.map
 tsconfig.json
+package-lock.json
 npm-debug.log
 vsc-extension-quickstart.md
