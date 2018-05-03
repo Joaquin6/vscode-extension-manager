@@ -1,0 +1,15 @@
+{
+	"files.exclude": {
+		"out": false,
+        "npm-debug.log": true
+	},
+	"search.exclude": {
+		"out": true
+	},
+	"typescript.tsdk": "./node_modules/typescript/lib",
+	"editor.formatOnSave": false,
+    "tslint.autoFixOnSave": false,
+    "tslint.enable": true,
+    "tslint.alwaysShowStatus": true,
+    "tslint.run": "onSave"
+}
