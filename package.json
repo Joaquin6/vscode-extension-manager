@@ -4,6 +4,10 @@
     "description": "shared multi-platform vscode extensions",
     "version": "0.0.1",
     "publisher": "joaquinbriceno",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Joaquin6/vscode-extension-manager"
+    },
     "engines": {
         "vscode": "^1.22.0"
     },
