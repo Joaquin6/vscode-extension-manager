@@ -166,7 +166,7 @@
     "fs": "^0.0.1-security",
     "http-proxy-agent": "^2.1.0",
     "https-proxy-agent": "^2.2.1",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.21",
     "markdown-it": "^8.4.1",
     "semver": "^5.5.0",
     "vscode": "^1.1.17"
